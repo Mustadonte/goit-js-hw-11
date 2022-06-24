@@ -13,7 +13,7 @@ export default function createCards(items) {
 
       return `<div class="photo-card">
       <a href="${largeImageURL}">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
   <div class="info">
     <p class="info-item">
       <b>Likes</b> ${likes}
@@ -28,7 +28,7 @@ export default function createCards(items) {
       <b>Downloads</b> ${downloads}
     </p>
   </div>
-</div></a>`;
+</div>`;
     })
     .join('');
 }
