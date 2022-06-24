@@ -21,6 +21,11 @@ function onSubmit(e) {
     try {
       const { hits, totalHits } = await getImages(query);
       refs.galleryElement.insertAdjacentHTML('beforeend', createCards(hits));
+      var lightbox = new SimpleLightbox('.gallery  a', {
+          captionsData: 'alt',
+          captionDelay: 250,
+          overlayOpacity: 0.8,
+        });
     } catch (error) {
       console.log(error);
     }
@@ -28,8 +33,4 @@ function onSubmit(e) {
 
   renderImages();
 }
-var lightbox = new SimpleLightbox('.gallery  a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-  overlayOpacity: 0.8,
-});
+
