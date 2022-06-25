@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
     integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.10.3/simple-lightbox.min.css"
+    integrity="sha512-Ne9/ZPNVK3w3pBBX6xE86bNG295dJl4CHttrCp3WmxO+8NQ2Vn8FltNr6UsysA1vm7NE6hfCszbXe3D6FUNFsA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css" />
   <script type="module" src="./index.js"></script>
 </head>
@@ -15,15 +20,21 @@
 <body>
   <form class="search-form" id="search-form">
     <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-    <button type="submit" class="button">
+    <button type="submit" class="search-button">
 
     </button>
 
   </form>
-
-  <div class="gallery">
-    <!-- Карточки изображений -->
+  <div class="container">
+    <div class="gallery">
+      <!-- Карточки изображений -->
+    </div>
   </div>
+  <button type="button" class="load-more btn btn-primary button" data-action="load-more">
+    <span class="spinner-border spinner-border-sm spinner is-hidden" role="status" aria-hidden="true"></span>
+
+    <span class="label">Показать ещё</span>
+  </button>
 </body>
 
 </html>
