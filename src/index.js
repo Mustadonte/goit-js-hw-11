@@ -1,6 +1,5 @@
 import Notiflix from 'notiflix';
 
-import getImages from './js/fetch';
 import createCards from './js/create_cards';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
