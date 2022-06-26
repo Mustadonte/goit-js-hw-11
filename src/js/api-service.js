@@ -20,11 +20,14 @@ export default class ApiService {
 
     try {
       const response = await axios.get(`${BASE_URL}?${searchParams}`);
-      this.page += 1;
       return response.data;
     } catch (error) {
       console.error(error);
     }
+  }
+
+  incrementPage() {
+    this.page += 1;
   }
 
   resetPage() {

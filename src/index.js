@@ -32,7 +32,7 @@ function onSubmit(e) {
       if (res.totalHits > 0) {
         Notiflix.Notify.success(`Hooray! We found ${res.totalHits} images.`);
         renderImages();
-      } else {
+      } else if (res.totalHits === 0) {
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
         );
@@ -63,6 +63,8 @@ async function renderImages() {
 
     loadMoreBtn.enable();
     lightbox.refresh();
+    apiService.incrementPage();
+    scroll();
   } catch (error) {
     console.log(error);
   }
@@ -74,4 +76,15 @@ async function renderImages() {
 
 function clearContainer() {
   refs.galleryElement.innerHTML = '';
+}
+
+function scroll() {
+  const { height: cardHeight } =
+    refs.galleryElement.firstElementChild.getBoundingClientRect();
+  console.log(cardHeight);
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
