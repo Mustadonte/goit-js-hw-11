@@ -14,8 +14,9 @@ const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
   hidden: true,
 });
+let cordLastItems;
 refs.formElement.addEventListener('submit', onSubmit);
-loadMoreBtn.refs.button.addEventListener('click', renderImages);
+loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
 
 const apiService = new ApiService();
 
@@ -63,28 +64,31 @@ async function renderImages() {
 
     loadMoreBtn.enable();
     lightbox.refresh();
-    apiService.incrementPage();
     scroll();
+    apiService.incrementPage();
   } catch (error) {
     console.log(error);
   }
 }
 
-// function onLoadMore() {
-//   renderImages();
-// }
+function onLoadMore() {
+  renderImages();
+}
 
 function clearContainer() {
   refs.galleryElement.innerHTML = '';
 }
 
 function scroll() {
-  const { height: cardHeight } =
-    refs.galleryElement.firstElementChild.getBoundingClientRect();
-  console.log(cardHeight);
+  if (apiService.page === 1) {
+    return;
+  } else {
+    const { height: cardHeight } =
+      refs.galleryElement.firstElementChild.getBoundingClientRect();
 
-  window.scrollBy({
-    top: cardHeight * 2,
-    behavior: 'smooth',
-  });
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
+  }
 }
